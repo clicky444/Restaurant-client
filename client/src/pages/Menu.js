@@ -10,7 +10,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import RatingBar from '../components/RatingBar';
 import { BASE_URL } from '../constants';
-import ReactImageMagnify from 'react-image-magnify';
 import { useDispatch, useSelector } from 'react-redux';
 import './Menu.css';
 import { addToCart, saveShippingAddress, savePaymentMethod } from '../slices/cartSlice';
@@ -168,42 +167,7 @@ const Menu = () => {
         {product && (
           <div className="flex flex-row items-center">
             <div className="w-1/2 mr-8 h-full image-container">
-              <ReactImageMagnify
-                {...{
-                  smallImage: {
-                    alt: product.title,
-                    isFluidWidth: false,
-                    src: `${BASE_URL}${product.image}`,
-                    width: 400,
-                    height: 400,
-                  },
-                  largeImage: {
-                    alt: product.title,
-                    src: `${BASE_URL}${product.image}`,
-                    width: 800,
-                    height: 800,
-                  },
-                  enlargedImageContainerDimensions: {
-                    width: '200%',
-                    height: '200%',
-                  },
-                  enlargedImagePosition: 'over',
-                  className: 'object-contain image-wrapper',
-                  imageClassName: 'hide-on-hover',
-                  lensStyle: {
-                    backgroundColor: 'rgba(0, 0, 0, 0.8)',
-                    cursor: 'pointer',
-                    height: '100%',
-                    width: '100%',
-                    zIndex: 1000,
-                  },
-                  imageStyle: {
-                    height: '100%',
-                    width: '100%',
-                    objectFit: 'contain',
-                  },
-                }}
-              />
+              <img src={`${BASE_URL}${product.image}`} className='mt-8'/>
             </div>
             <div className="w-1/2 h-auto">
               <h2 className="text-3xl font-semibold text-gray-800">{product.title}</h2>
